@@ -23,16 +23,16 @@ interface UserData {
 
 const UserDataProvider: React.FC<UserDataContextProviderProps> = ({ children }) => {
   const [userData, setUserData] = useState<UserData | undefined>(undefined);
+  const { token } = useAuth();
 
   const getUserData = async () : Promise<boolean> => {
-    const token = useAuth().token;
     if (!token) {
       console.error('No token found');
       return false;
     }
 
     try {
-      const response = await fetch('https://www.save.back.clementseux.me:8080/user/id', {
+      const response = await fetch('https://www.save.back.clementseux.me:8080/user/me', {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -52,7 +52,7 @@ const UserDataProvider: React.FC<UserDataContextProviderProps> = ({ children }) 
 
   useEffect(() => {
     getUserData();
-  }, []);
+  }, [token]);
 
   return (
     <UserDataContext.Provider value={{ userData, getUserData }}>

@@ -17,6 +17,8 @@ interface AuthContextValue {
 const AuthContextProvider: React.FC<AuthContextProviderProps> = ({ children }) => {
   const [login, setLogin] = useState(() => localStorage.getItem('login') || '');
   const [token, setToken] = useState(() => localStorage.getItem('token') || '');
+
+  // TDOD: implement token expiration
   // const [expiration, setExpiration] = useState(() => localStorage.getItem('expiration') || '');
 
   // const checkTokenExpiration = () => {
