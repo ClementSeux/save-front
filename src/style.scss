@@ -133,6 +133,18 @@ body,
     }
 }
 
+.sous-titre {
+    padding: 68px;
+    color: $color-primary;
+    font-family: Massilia, sans-serif;
+    text-align: center;
+    font-feature-settings: "clig" off, "liga" off;
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 66px;
+}
+
 // favoris
 
 #favoris {
@@ -143,15 +155,7 @@ body,
     justify-content: center;
     align-items: center;
     & h2 {
-        padding: 68px;
         color: $color-primary;
-        font-family: Massilia, sans-serif;
-        text-align: center;
-        font-feature-settings: "clig" off, "liga" off;
-        font-size: 56px;
-        font-style: normal;
-        font-weight: 900;
-        line-height: 66px;
     }
 }
 
@@ -175,14 +179,6 @@ body,
         border: none;
     }
 
-    & .card-body {
-        position: relative;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: start;
-    }
     & h5 {
         color: $color-secondary;
         font-feature-settings: "clig" off, "liga" off;
@@ -192,50 +188,183 @@ body,
         font-weight: 800;
         line-height: 46px;
     }
-    & .card-price {
-        color: $color-secondary;
-        font-feature-settings: "clig" off, "liga" off;
-        font-family: Massilia, sans-serif;
-        font-size: 22px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-    }
-    & .card-old-price {
-        color: $color-primary;
-        font-feature-settings: "clig" off, "liga" off;
-        font-family: Massilia, sans-serif;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 28px;
-        text-decoration-line: line-through;
-    }
-    & .card-description {
-        color: $color-secondary;
-        font-feature-settings: "clig" off, "liga" off;
-        font-family: Roboto, sans-serif;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-    }
+}
 
-    & .card-button {
-        position: absolute;
-        bottom: 24px;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 54px;
-        width: 190px;
-        padding: 10px 16px;
+.card-body {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+}
+
+.card-price {
+    color: $color-secondary;
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: Massilia, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.card-old-price {
+    color: $color-primary;
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: Massilia, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    text-decoration-line: line-through;
+}
+.card-description {
+    color: $color-secondary;
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.card-button {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 54px;
+    width: 190px;
+    padding: 10px 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-secondary;
+    color: white;
+    border: none;
+    border-radius: 100px;
+}
+
+#offers {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 68px 0;
+    background-color: white;
+    & h2 {
+        color: $color-secondary;
+    }
+}
+
+.hcard {
+    border-radius: 30px;
+    border: 2px solid #adabc3;
+    background: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    margin: 24px;
+
+    & .hcard-body {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        background-color: $color-secondary;
-        color: white;
-        border: none;
+    }
+
+    & .card-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        & button,
+        a {
+            margin: 10px;
+        }
+    }
+
+    & .toggle-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        color: $color-secondary;
+        border: 2px solid $color-secondary;
         border-radius: 100px;
+
+        width: 66px;
+        height: 66px;
+    }
+
+    & .details {
+        // html link no decoration
+        border-radius: 100px;
+        width: 128px;
+        height: 66px;
+        background-color: $color-accent;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-family: Roboto, sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 18px;
+        border: 2px solid $color-accent;
+
+        & :visited {
+            color: white;
+        }
+        & :hover {
+            background-color: white;
+            color: $color-accent;
+        }
+
+        & :active {
+            background-color: $color-accent;
+            color: white;
+        }
+    }
+
+    & .collapse {
+        width: 100%;
+        padding: 0;
+
+        & .card-body {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: start;
+            padding: 0;
+
+            border: none;
+            & .col1 {
+                width: 30%;
+            }
+            & .col2 {
+                padding-left: 20px;
+                width: 70%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: start;
+                & div {
+                    width: 50%;
+                }
+                & h6 {
+                    text-align: right;
+                }
+            }
+        }
     }
 }

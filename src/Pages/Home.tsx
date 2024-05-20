@@ -1,5 +1,3 @@
-// simple Home.tsx react page
-
 import React , { useEffect } from 'react';
 import { useAuth } from '../Providers/AuthContextProvider';
 import { useUserData } from '../Providers/UserDataProvider';

@@ -1,5 +1,3 @@
-// context provider for user data
-
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { useAuth } from './AuthContextProvider';
 

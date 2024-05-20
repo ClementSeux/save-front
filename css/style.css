@@ -122,15 +122,7 @@ body,
   line-height: 18px;
 }
 
-#favoris {
-  width: 100%;
-  display: flex;
-  background-color: #040039;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-#favoris h2 {
+.sous-titre {
   padding: 68px;
   color: #b8b4ff;
   font-family: Massilia, sans-serif;
@@ -140,6 +132,18 @@ body,
   font-style: normal;
   font-weight: 900;
   line-height: 66px;
+}
+
+#favoris {
+  width: 100%;
+  display: flex;
+  background-color: #040039;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#favoris h2 {
+  color: #b8b4ff;
 }
 
 #favs-row {
@@ -162,14 +166,6 @@ body,
   height: 220px;
   border: none;
 }
-.vcard .card-body {
-  position: relative;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: start;
-}
 .vcard h5 {
   color: #040039;
   font-feature-settings: "clig" off, "liga" off;
@@ -179,7 +175,17 @@ body,
   font-weight: 800;
   line-height: 46px;
 }
-.vcard .card-price {
+
+.card-body {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+}
+
+.card-price {
   color: #040039;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Massilia, sans-serif;
@@ -188,7 +194,8 @@ body,
   font-weight: 700;
   line-height: normal;
 }
-.vcard .card-old-price {
+
+.card-old-price {
   color: #b8b4ff;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Massilia, sans-serif;
@@ -198,7 +205,8 @@ body,
   line-height: 28px;
   text-decoration-line: line-through;
 }
-.vcard .card-description {
+
+.card-description {
   color: #040039;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Roboto, sans-serif;
@@ -207,7 +215,8 @@ body,
   font-weight: 400;
   line-height: normal;
 }
-.vcard .card-button {
+
+.card-button {
   position: absolute;
   bottom: 24px;
   left: 50%;
@@ -223,4 +232,115 @@ body,
   color: white;
   border: none;
   border-radius: 100px;
+}
+
+#offers {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 68px 0;
+  background-color: white;
+}
+#offers h2 {
+  color: #040039;
+}
+
+.hcard {
+  border-radius: 30px;
+  border: 2px solid #adabc3;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  margin: 24px;
+}
+.hcard .hcard-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.hcard .card-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.hcard .card-buttons button,
+.hcard .card-buttons a {
+  margin: 10px;
+}
+.hcard .toggle-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: #040039;
+  border: 2px solid #040039;
+  border-radius: 100px;
+  width: 66px;
+  height: 66px;
+}
+.hcard .details {
+  border-radius: 100px;
+  width: 128px;
+  height: 66px;
+  background-color: #f90093;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  border: 2px solid #f90093;
+}
+.hcard .details :visited {
+  color: white;
+}
+.hcard .details :hover {
+  background-color: white;
+  color: #f90093;
+}
+.hcard .details :active {
+  background-color: #f90093;
+  color: white;
+}
+.hcard .collapse {
+  width: 100%;
+  padding: 0;
+}
+.hcard .collapse .card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+  padding: 0;
+  border: none;
+}
+.hcard .collapse .card-body .col1 {
+  width: 30%;
+}
+.hcard .collapse .card-body .col2 {
+  padding-left: 20px;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: start;
+}
+.hcard .collapse .card-body .col2 div {
+  width: 50%;
+}
+.hcard .collapse .card-body .col2 h6 {
+  text-align: right;
 }/*# sourceMappingURL=style.css.map */
