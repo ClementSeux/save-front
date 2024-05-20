@@ -3,13 +3,18 @@
 import React , { useEffect } from 'react';
 import { useAuth } from '../Providers/AuthContextProvider';
 import { useUserData } from '../Providers/UserDataProvider';
+import Header from '../Components/Header';
+import Banner from '../Components/Banner';
+import Favoris from '../Components/Favoris';
+import Offers from '../Components/Offers';
 
 const Home: React.FC = () => {
   const {  token, login, getToken, setLogin } = useAuth();
+  const {userData} = useUserData();
 
 
   const getAuth = async () => {
-    const loginInput = prompt('Login');
+    const loginInput = 'dada@gmail.com'
     if (loginInput) {
       console.log('loginInput', loginInput);
       setLogin(loginInput);
@@ -29,29 +34,16 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <div className="badge"
-      style={
-        {
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '100px',
-          height: '100px',
-          backgroundColor: 'blue',
-          color: 'white',
-          borderRadius: '50%',
-          position: 'absolute',
-          top: '10px',
-          right: '10px',
-        }
-      }>
-        <h1>{login}</h1>
-      </div>
+      <Header/>
+      <Banner/>
+      <Favoris/>
+      <Offers/>
 
+      
+     
 
-      <h1>Home</h1>
-      <p>Home page content</p>
       <p>Token: {token}</p>
+      <p>User data: {userData ? JSON.stringify(userData) : 'loading...'}</p>
      
     </div>
   );

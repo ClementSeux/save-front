@@ -1,0 +1,241 @@
+$color-accent: #f90093;
+$color-primary: #b8b4ff;
+$color-secondary: #040039;
+
+@font-face {
+    font-family: "Massilia";
+    src: url("../fonts/Massilia-Medium-BF65ea8038d5375.otf") format("opentype");
+}
+
+body,
+#root,
+#root > div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#header {
+    width: 100%;
+    display: flex;
+    padding: 0 90px 0 30px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    & div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+#logo {
+    width: 250px;
+    height: 140px;
+}
+
+.nav-link {
+    padding-top: 22px;
+    color: var(--Moyen, #040039);
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: Massilia, sans-serif;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#search-button,
+#cart-button,
+#connexion-button {
+    margin: 5px;
+}
+
+#search-button {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    padding-left: 5px;
+    border-radius: 100px;
+    background: $color-accent;
+    color: white;
+    border: none;
+
+    & svg {
+        position: absolute;
+        top: 50%;
+        left: calc(50% + 2px);
+        transform: translateY(-50%) translateX(-50%);
+    }
+}
+
+#cart-button {
+    width: 40px;
+    height: 40px;
+    padding-left: 5px;
+    border-radius: 100px;
+    background: transparent;
+    border: none;
+    color: $color-secondary;
+}
+
+#connexion-button {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-secondary;
+    color: white;
+    font-family: Roboto, sans-serif;
+    border: none;
+    border-radius: 100px;
+
+    & span,
+    svg {
+        margin: 4px;
+    }
+}
+
+// banner
+
+#banner {
+    position: relative;
+}
+
+#banner-button {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateY(-50%);
+    height: 60px;
+    padding: 10px 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-accent;
+    color: white;
+    border: none;
+    border-radius: 100px;
+
+    & span {
+        text-align: center;
+        font-feature-settings: "clig" off, "liga" off;
+        font-family: Roboto, sans-serif;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 18px;
+    }
+}
+
+// favoris
+
+#favoris {
+    width: 100%;
+    display: flex;
+    background-color: $color-secondary;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & h2 {
+        padding: 68px;
+        color: $color-primary;
+        font-family: Massilia, sans-serif;
+        text-align: center;
+        font-feature-settings: "clig" off, "liga" off;
+        font-size: 56px;
+        font-style: normal;
+        font-weight: 900;
+        line-height: 66px;
+    }
+}
+
+#favs-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 68px;
+}
+
+.vcard {
+    margin: 0 30px;
+    width: 350px;
+    height: 500px;
+    border-radius: 50px;
+    border: none;
+    & img {
+        border-radius: 50px 50px 0 0;
+        height: 220px;
+        border: none;
+    }
+
+    & .card-body {
+        position: relative;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: start;
+    }
+    & h5 {
+        color: $color-secondary;
+        font-feature-settings: "clig" off, "liga" off;
+        font-family: Massilia, sans-serif;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 46px;
+    }
+    & .card-price {
+        color: $color-secondary;
+        font-feature-settings: "clig" off, "liga" off;
+        font-family: Massilia, sans-serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    & .card-old-price {
+        color: $color-primary;
+        font-feature-settings: "clig" off, "liga" off;
+        font-family: Massilia, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+        text-decoration-line: line-through;
+    }
+    & .card-description {
+        color: $color-secondary;
+        font-feature-settings: "clig" off, "liga" off;
+        font-family: Roboto, sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
+    & .card-button {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 54px;
+        width: 190px;
+        padding: 10px 16px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: $color-secondary;
+        color: white;
+        border: none;
+        border-radius: 100px;
+    }
+}

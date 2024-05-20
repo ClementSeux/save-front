@@ -6,7 +6,6 @@ import AuthContextProvider from './Providers/AuthContextProvider.tsx';
 
 import Home from './Pages/Home.tsx';
 
-import Navbar from './Components/Navbar.tsx';
 import UserDataProvider from './Providers/UserDataProvider.tsx';
 
 const App: React.FC = () => {
@@ -14,7 +13,6 @@ const App: React.FC = () => {
     <AuthContextProvider>
       <UserDataProvider>
         <Router>
-          <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
             </Routes>

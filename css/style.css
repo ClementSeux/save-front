@@ -1,0 +1,226 @@
+@font-face {
+  font-family: "Massilia";
+  src: url("../fonts/Massilia-Medium-BF65ea8038d5375.otf") format("opentype");
+}
+body,
+#root,
+#root > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#header {
+  width: 100%;
+  display: flex;
+  padding: 0 90px 0 30px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#header div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#logo {
+  width: 250px;
+  height: 140px;
+}
+
+.nav-link {
+  padding-top: 22px;
+  color: var(--Moyen, #040039);
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Massilia, sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+#search-button,
+#cart-button,
+#connexion-button {
+  margin: 5px;
+}
+
+#search-button {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  padding-left: 5px;
+  border-radius: 100px;
+  background: #f90093;
+  color: white;
+  border: none;
+}
+#search-button svg {
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  transform: translateY(-50%) translateX(-50%);
+}
+
+#cart-button {
+  width: 40px;
+  height: 40px;
+  padding-left: 5px;
+  border-radius: 100px;
+  background: transparent;
+  border: none;
+  color: #040039;
+}
+
+#connexion-button {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #040039;
+  color: white;
+  font-family: Roboto, sans-serif;
+  border: none;
+  border-radius: 100px;
+}
+#connexion-button span,
+#connexion-button svg {
+  margin: 4px;
+}
+
+#banner {
+  position: relative;
+}
+
+#banner-button {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateY(-50%);
+  height: 60px;
+  padding: 10px 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #f90093;
+  color: white;
+  border: none;
+  border-radius: 100px;
+}
+#banner-button span {
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+#favoris {
+  width: 100%;
+  display: flex;
+  background-color: #040039;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#favoris h2 {
+  padding: 68px;
+  color: #b8b4ff;
+  font-family: Massilia, sans-serif;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 66px;
+}
+
+#favs-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 68px;
+}
+
+.vcard {
+  margin: 0 30px;
+  width: 350px;
+  height: 500px;
+  border-radius: 50px;
+  border: none;
+}
+.vcard img {
+  border-radius: 50px 50px 0 0;
+  height: 220px;
+  border: none;
+}
+.vcard .card-body {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+}
+.vcard h5 {
+  color: #040039;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Massilia, sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 46px;
+}
+.vcard .card-price {
+  color: #040039;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Massilia, sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.vcard .card-old-price {
+  color: #b8b4ff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Massilia, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  text-decoration-line: line-through;
+}
+.vcard .card-description {
+  color: #040039;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.vcard .card-button {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 54px;
+  width: 190px;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #040039;
+  color: white;
+  border: none;
+  border-radius: 100px;
+}/*# sourceMappingURL=style.css.map */

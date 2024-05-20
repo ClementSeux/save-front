@@ -11,7 +11,7 @@ const UserDataContext = createContext<UserDataContextValue | undefined>(undefine
 
 interface UserDataContextValue {
   userData: UserData | undefined;
-  getUserData: () => Promise<boolean>;
+  
 }
 
 interface UserData {
@@ -55,7 +55,7 @@ const UserDataProvider: React.FC<UserDataContextProviderProps> = ({ children }) 
   }, [token]);
 
   return (
-    <UserDataContext.Provider value={{ userData, getUserData }}>
+    <UserDataContext.Provider value={{ userData}}>
       {children}
     </UserDataContext.Provider>
   );
