@@ -6,6 +6,10 @@ $color-secondary: #040039;
     font-family: "Massilia";
     src: url("../fonts/Massilia-Medium-BF65ea8038d5375.otf") format("opentype");
 }
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Medium.ttf") format("truetype");
+}
 
 body,
 #root,
@@ -19,6 +23,8 @@ body,
 
 #header {
     width: 100%;
+    height: 10vh;
+    min-height: 100px;
     display: flex;
     padding: 0 90px 0 30px;
     flex-direction: row;
@@ -104,13 +110,23 @@ body,
 
 #banner {
     position: relative;
+    width: 100%;
+    height: 35vw;
+    & img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 #banner-button {
     position: absolute;
-    bottom: 30px;
+    bottom: max(calc(10vh - 30px), -10px);
     left: 50%;
     transform: translateY(-50%);
+}
+
+.standard-button {
     height: 60px;
     padding: 10px 25px;
     display: flex;
@@ -162,9 +178,15 @@ body,
 #favs-row {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     padding-bottom: 68px;
+    row-gap: 60px;
+
+    & .vcard {
+        margin: 20px;
+    }
 }
 
 .vcard {
@@ -208,6 +230,7 @@ body,
     font-weight: 700;
     line-height: normal;
 }
+
 .card-old-price {
     color: $color-primary;
     font-feature-settings: "clig" off, "liga" off;
@@ -218,6 +241,7 @@ body,
     line-height: 28px;
     text-decoration-line: line-through;
 }
+
 .card-description {
     color: $color-secondary;
     font-feature-settings: "clig" off, "liga" off;
@@ -257,28 +281,28 @@ body,
     & h2 {
         color: $color-secondary;
     }
-}
 
-.hcard {
-    border-radius: 30px;
-    border: 2px solid #adabc3;
-    background: white;
+    .hcard {
+        border-radius: 30px;
+        border: 2px solid #adabc3;
+        background: white;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-    margin: 24px;
-
-    & .hcard-body {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
+        padding: 50px;
+        margin: 24px;
 
-    & .card-buttons {
+        & .hcard-body {
+            display: flex;
+            flex-direction: row;
+
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .card-buttons {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -287,52 +311,52 @@ body,
         a {
             margin: 10px;
         }
-    }
 
-    & .toggle-button {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
-        color: $color-secondary;
-        border: 2px solid $color-secondary;
-        border-radius: 100px;
-
-        width: 66px;
-        height: 66px;
-    }
-
-    & .details {
-        // html link no decoration
-        border-radius: 100px;
-        width: 128px;
-        height: 66px;
-        background-color: $color-accent;
-        color: white;
-        text-decoration: none;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        font-family: Roboto, sans-serif;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 18px;
-        border: 2px solid $color-accent;
-
-        & :visited {
-            color: white;
-        }
-        & :hover {
+        & .toggle-button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
             background-color: white;
-            color: $color-accent;
+            color: $color-secondary;
+            border: 2px solid $color-secondary;
+            border-radius: 100px;
+
+            width: 66px;
+            height: 66px;
         }
 
-        & :active {
+        & .details {
+            // html link no decoration
+            border-radius: 100px;
+            width: 128px;
+            height: 66px;
             background-color: $color-accent;
             color: white;
+            text-decoration: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-family: Roboto, sans-serif;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 18px;
+            border: 2px solid $color-accent;
+
+            & :visited {
+                color: white;
+            }
+            & :hover {
+                background-color: white;
+                color: $color-accent;
+            }
+
+            & :active {
+                background-color: $color-accent;
+                color: white;
+            }
         }
     }
 
@@ -365,6 +389,248 @@ body,
                     text-align: right;
                 }
             }
+        }
+    }
+}
+
+#partners {
+    width: 100%;
+    display: flex;
+    background-color: $color-primary;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & .sous-titre {
+        color: $color-secondary;
+    }
+    & #partners-row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 68px;
+
+        & img {
+            object-fit: cover;
+            margin: 20px;
+            width: 30vw;
+            max-width: 600px;
+            min-width: 300px;
+            height: 30vw;
+            max-height: 600px;
+            min-height: 300px;
+            border-radius: 30px;
+        }
+    }
+}
+
+#footer {
+    width: 100%;
+    background-color: $color-secondary;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & .row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & h5 {
+        color: $color-primary;
+        font-feature-settings: "clig" off, "liga" off;
+        font-family: Massilia, sans-serif;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 46px;
+    }
+
+    & .first-col {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        & form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        & input {
+            width: 300px;
+            height: 54px;
+            margin: 10px;
+            padding: 10px 16px;
+            border-radius: 100px;
+            border: none;
+        }
+        & button {
+            width: 116px;
+            height: 54px;
+            padding: 10px 16px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 100px;
+        }
+    }
+
+    & .second-col,
+    .third-col {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        & ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-feature-settings: "clig" off, "liga" off;
+            font-family: Roboto, sans-serif;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 28px;
+            list-style-type: none;
+            text-decoration-line: underline;
+
+            & a:visited {
+                color: white;
+            }
+            & a:hover {
+                color: $color-accent;
+            }
+        }
+        padding-top: 60px;
+    }
+
+    & .logo {
+        width: 314px;
+        height: 142px;
+        margin-right: 0px;
+    }
+
+    & p,
+    form {
+        margin-right: 0px;
+    }
+
+    & p {
+        margin-right: 20px;
+    }
+}
+
+// media query for pc
+
+@media (min-width: 1024px) {
+    #footer {
+        width: 100%;
+        background-color: $color-secondary;
+        color: white;
+        & .row {
+            align-items: flex-start;
+        }
+
+        & h5 {
+            color: $color-primary;
+            font-feature-settings: "clig" off, "liga" off;
+            font-family: Massilia;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 46px;
+        }
+        & .first-col {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: start;
+            align-items: flex-end;
+            padding: 20px;
+            & form {
+                display: flex;
+                flex-direction: row;
+                justify-content: end;
+                align-items: flex-end;
+            }
+            & input {
+                width: 400px;
+                height: 54px;
+                margin: 10px;
+                padding: 10px 16px;
+                border-radius: 100px;
+                border: none;
+            }
+            & button {
+                width: 116px;
+                height: 54px;
+                padding: 10px 16px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                background-color: black;
+                color: white;
+                border: none;
+                border-radius: 100px;
+            }
+        }
+        & .second-col {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: start;
+            align-items: flex-start;
+            padding: 20px;
+            & ul {
+                font-feature-settings: "clig" off, "liga" off;
+                font-family: Roboto, sans-serif;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 28px;
+                list-style-type: none;
+                text-decoration-line: underline;
+
+                & a:visited {
+                    color: white;
+                }
+                & a:hover {
+                    color: $color-accent;
+                }
+            }
+        }
+        & .second-col,
+        .third-col {
+            padding-top: 60px;
+        }
+        & .logo {
+            width: 314px;
+            height: 142px;
+            margin-right: 120px;
+        }
+        & p,
+        form {
+            margin-right: 40px;
+        }
+        & p {
+            margin-right: 190px;
         }
     }
 }

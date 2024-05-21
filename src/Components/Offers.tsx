@@ -38,6 +38,12 @@ const Offers = () => {
         En tout, de nombreux articles et offres dont on ne peut pas se passer !"
         articles={['Kit Beauté: 1 Mascara, 1 rouge à lèvres', 'Lingettes démaquillantes', 'Cotons', 'Soin visage, etc..']}
       /> */}
+
+      <button className="standard-button">
+        <span>
+          Découvrir les offres &#8594;
+        </span>
+      </button>
     </article>
   );
 };
