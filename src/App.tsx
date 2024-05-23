@@ -9,6 +9,7 @@ import UserDataProvider from './Providers/UserDataProvider.tsx';
 import Home from './Pages/Home.tsx';
 import Login from './Pages/Login.tsx';
 import OffersPage from './Pages/OffersPage.tsx';
+import Details from './Pages/Details.tsx';
 
 
 const App: React.FC = () => {
@@ -21,6 +22,8 @@ const App: React.FC = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/home" element={<Home />} />
               <Route path="/offers" element={<OffersPage />} />
+              {/* pass :id as props */}
+              <Route path="/details/:id" element={<Details />} />
               <Route path="*" element={<h1>404 Not Found</h1>} />
             </Routes>
         </Router>

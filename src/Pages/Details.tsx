@@ -1,17 +1,17 @@
-// react page Details:id
-// find id in url
-
 import React from 'react';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
-import Details from '../Components/Details';
+import Liste from '../Components/Liste';
+
 
 const Details: React.FC = () => {
   return (
     <div>
       <Header/>
-      <Details/>
+      <Liste />
       <Footer/>
     </div>
   );
 };
+
+export default Details;

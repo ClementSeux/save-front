@@ -11,7 +11,9 @@ const HCard = ({
   async function initCart() {
     const result = await fetchCart()
     console.log(result)
-    setCart(result)
+    if (result && result.id !== 0) {
+      setCart(result)
+    }
   }
 
   function getOldPrice() {
@@ -61,7 +63,7 @@ const HCard = ({
               </svg>
               }
           </button>
-          <a className="details" >
+          <a className="details" href={"/details/"+cart.id}>
             Détails
           </a>
         </div>

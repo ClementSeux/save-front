@@ -17,6 +17,14 @@ interface UserData {
   uName: string;
   email: string;
   role: string;
+  bills: [
+    {
+      id: number;
+      amount: number;
+      date: string;
+      status: string;
+    }
+  ];
 }
 
 const UserDataProvider: React.FC<UserDataContextProviderProps> = ({ children }) => {

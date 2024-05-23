@@ -43,9 +43,10 @@ export const useCart = (cartId: string) => {
     return  fetch("https://www.save.back.clementseux.me:8080/carts/"+cartId, requestOptions)
       .then(async (response) => 
         
-        await response.json()
+        await response.json() as Promise<Cart>
       )
       .then((result) =>{
+        console.log(result)
         return result}
       )
       .catch((error) => console.error(error));
