@@ -60,7 +60,7 @@ const Liste: React.FC = () => {
     ]
   });
 
-  const { user } = useUserData();
+  const { userData } = useUserData();
 
     useEffect(() => {
       fetchCart().then((cart) => {
@@ -70,9 +70,14 @@ const Liste: React.FC = () => {
     }, [fetchCart]);
 
     useEffect(() => {
-      if (user && user.cartId) {
-        if(user.)
-    }, [user, cart]);
+      if (userData && userData.id && cart && cart.id) {
+
+        const mycart = userData.carts.find((cart: Cart) => cart.id === userData.cartId);
+        if(mycart){
+          setMyCart(mycart);
+        }
+      }
+    }, [userData, cart]);
 
     return (
       <div id='liste'>
