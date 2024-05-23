@@ -8,14 +8,18 @@ interface AuthContextProviderProps {
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
 interface AuthContextValue {
-  token: string;
   login: string;
-  getToken: () => Promise<boolean>;
   setLogin: (login: string) => void;
+  password: string;
+  setPassword: (password: string) => void;
+  token: string;
+  getToken: () => Promise<boolean>;
+  logout: () => void;
 }
 
 const AuthContextProvider: React.FC<AuthContextProviderProps> = ({ children }) => {
   const [login, setLogin] = useState(() => localStorage.getItem('login') || '');
+  const [password, setPassword] = useState(''); 
   const [token, setToken] = useState(() => localStorage.getItem('token') || '');
 
   // TDOD: implement token expiration
@@ -36,12 +40,11 @@ const AuthContextProvider: React.FC<AuthContextProviderProps> = ({ children }) =
       return true;
     }
 
-    const password = prompt('Password');
+    
     if (!login || !password) {
       console.error('Login and password are required');
       !login && console.error('login', login); 
       !password && console.error('password', password);
-      return false;
     }
 
     try {
@@ -63,6 +66,12 @@ const AuthContextProvider: React.FC<AuthContextProviderProps> = ({ children }) =
     }
   };
 
+  const logout = () => {
+    setLogin('');
+    setPassword('');
+    setToken('');
+  };
+
   useEffect(() => {
     console.log('storing login', login);
     localStorage.setItem('login', login);
@@ -78,7 +87,7 @@ const AuthContextProvider: React.FC<AuthContextProviderProps> = ({ children }) =
   // }, [expiration]);
 
   return (
-    <AuthContext.Provider value={{ token, login, getToken, setLogin }}>
+    <AuthContext.Provider value={{login, setLogin, password, setPassword, token, getToken , logout}}>
       {children}
     </AuthContext.Provider>
   );

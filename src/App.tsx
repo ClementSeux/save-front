@@ -2,11 +2,14 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
 import AuthContextProvider from './Providers/AuthContextProvider.tsx';
+import UserDataProvider from './Providers/UserDataProvider.tsx';
 
 import Home from './Pages/Home.tsx';
+import Login from './Pages/Login.tsx';
+import OffersPage from './Pages/OffersPage.tsx';
 
-import UserDataProvider from './Providers/UserDataProvider.tsx';
 
 const App: React.FC = () => {
   return (
@@ -15,6 +18,10 @@ const App: React.FC = () => {
         <Router>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/offers" element={<OffersPage />} />
+              <Route path="*" element={<h1>404 Not Found</h1>} />
             </Routes>
         </Router>
       </UserDataProvider>

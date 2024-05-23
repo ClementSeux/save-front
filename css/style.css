@@ -14,6 +14,7 @@ body,
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  text-wrap: balance;
 }
 
 #header {
@@ -82,6 +83,7 @@ body,
 }
 
 #connexion-button {
+  padding: 0 10px;
   height: 40px;
   display: flex;
   flex-direction: row;
@@ -92,6 +94,13 @@ body,
   font-family: Roboto, sans-serif;
   border: none;
   border-radius: 100px;
+  text-decoration: none;
+}
+#connexion-button:visited {
+  color: white;
+}
+#connexion-button:hover {
+  background-color: #f90093;
 }
 #connexion-button span,
 #connexion-button svg {
@@ -117,7 +126,7 @@ body,
 }
 
 .standard-button {
-  height: 60px;
+  height: 50px;
   padding: 10px 25px;
   display: flex;
   flex-direction: row;
@@ -127,6 +136,13 @@ body,
   color: white;
   border: none;
   border-radius: 100px;
+  text-decoration: none;
+}
+.standard-button:visited {
+  color: white;
+}
+.standard-button:hover {
+  background-color: #b8b4ff;
 }
 .standard-button span {
   text-align: center;
@@ -281,6 +297,7 @@ body,
 #offers .hcard .hcard-body {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -510,6 +527,9 @@ body,
     color: white;
   }
   #footer .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: flex-start;
   }
   #footer h5 {
@@ -596,4 +616,96 @@ body,
   #footer p {
     margin-right: 190px;
   }
+}
+#login {
+  width: 100%;
+}
+
+.bandeau {
+  width: 100%;
+  height: 160px;
+  background-color: #b8b4ff;
+  color: #040039;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #040039;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Massilia;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 46px;
+}
+
+.square-zone {
+  width: 550px;
+  height: 350px;
+  max-width: 90vw;
+  border: 2px solid #f2f1fa;
+  border-radius: 30px;
+  padding: 20px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: #040039;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+.square-zone#login-zone {
+  padding-top: 40px;
+  padding-bottom: 35px;
+}
+.square-zone#login-zone .form-zone {
+  padding: 30px 0 0 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  margin: 10px 0;
+}
+.square-zone#login-zone .form-zone.larger {
+  padding-bottom: 30px;
+}
+.square-zone#login-zone .form-zone input {
+  width: 400px;
+  height: 42px;
+  border-radius: 100px;
+  background-color: #f2f1fa;
+  padding: 10px 16px;
+  border-radius: 100px;
+  border: none;
+}
+.square-zone#login-zone .form-zone label {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.square-zone#login-zone .form-zone a {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #b8b4ff;
+}
+.square-zone#login-zone button {
+  width: 197px;
+}
+.square-zone h2 {
+  color: #040039;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Massilia;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 46px;
 }/*# sourceMappingURL=style.css.map */

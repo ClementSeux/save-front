@@ -1,14 +1,62 @@
+import React, { useEffect, useState } from 'react';
 import HCard from './HCard';
+import { useAuth } from '../Providers/AuthContextProvider';
 
-const Offers = () => {
+type OffersProps = {
+  cartList: Array<number> | undefined;
+};
+
+const Offers = ({ cartList }: OffersProps) => {
+  const { token } = useAuth();
+  const [carts, setCarts] = useState([]);
+
+  function getAllCarts() {
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Authorization", "Bearer " + token);
+    
+    const requestOptions = {
+      method: "GET",
+      headers: myHeaders,
+      redirect: "follow" as RequestRedirect,
+    };
+    
+     fetch("https://www.save.back.clementseux.me:8080/carts", requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
+        setCarts(JSON.parse(result));
+      })
+      .catch((error) => console.error(error));
+  }
+
+  useEffect(() => {
+    if (cartList && cartList.length !== 0) return;
+    getAllCarts();
+  }, []);
+
+
+
+
+
   return (
     <article id="offers">
 
       <h2 className='sous-titre'>Nos offres</h2>
 
+      {cartList && cartList.length !== 0 ?
+      
+      cartList.map((cartId, index) => (
+        <HCard key={index} cartId={cartId} />
+      ))
+      :
+      carts.map((cart: any, index: number) => (
+        <HCard key={index} cartId={cart.id} />
+      ))
+      }
+{/* 
       <HCard cartId={1} />
       <HCard cartId={1} />
-      <HCard cartId={1} />
+      <HCard cartId={1} /> */}
 
       {/* <HCard 
         title='Panier propreté' 
@@ -39,11 +87,15 @@ const Offers = () => {
         articles={['Kit Beauté: 1 Mascara, 1 rouge à lèvres', 'Lingettes démaquillantes', 'Cotons', 'Soin visage, etc..']}
       /> */}
 
-      <button className="standard-button">
-        <span>
-          Découvrir les offres &#8594;
-        </span>
-      </button>
+      {
+        cartList && cartList.length !== 0 &&
+        <a className="standard-button" href="/offers">
+          <span>
+            Découvrir les offres &#8594;
+          </span>
+        </a>
+      }
+
     </article>
   );
 };
