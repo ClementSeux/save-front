@@ -1,5 +1,3 @@
-import VCard from './VCard';
-
 const Partners = () => {
   return (
     <article id="partners">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { useUserData } from '../Providers/UserDataProvider';
 import { Step } from '../types/types';
 
