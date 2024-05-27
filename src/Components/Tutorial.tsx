@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useAuth } from '../Providers/AuthContextProvider';
 import { useUserData } from '../Providers/UserDataProvider';
 import { Cart, useCart } from '../Hooks/useCart';
 import { Step } from '../types/types';
@@ -11,8 +10,7 @@ const Tutorial = () => {
     return <h1>404 Not Found</h1>;
   }
   
-  const { token } = useAuth();
-  const { userData, setUserData } = useUserData();
+  const { userData } = useUserData();
   const { fetchCart } = useCart(id.toString());
   const [cart, setCart] = useState<Cart>(
     {
