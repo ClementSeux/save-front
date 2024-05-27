@@ -10,7 +10,6 @@ const HCard = ({
   
   async function initCart() {
     const result = await fetchCart()
-    console.log(result)
     if (result && result.id !== 0) {
       setCart(result)
     }

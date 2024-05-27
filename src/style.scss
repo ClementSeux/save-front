@@ -663,7 +663,8 @@ body,
 }
 .bandeau {
     width: 100%;
-    height: 160px;
+    min-height: 160px;
+    padding: 20px 10px;
     background-color: $color-primary;
     color: $color-secondary;
     display: flex;
@@ -678,6 +679,18 @@ body,
     font-style: normal;
     font-weight: 800;
     line-height: 46px;
+
+    & p {
+        max-width: min(630px, 90vw);
+        color: $color-secondary;
+        font-feature-settings: "clig" off, "liga" off;
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-align: left;
+    }
 }
 
 .square-zone {
@@ -843,4 +856,12 @@ body,
             line-height: normal;
         }
     }
+}
+
+#tutorial {
+    width: 100%;
+}
+
+.itemCard {
+    margin: 20px;
 }

@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { useAuth } from './AuthContextProvider';
+import { UserData } from '../types/types';
 
 interface UserDataContextProviderProps {
   children: ReactNode;
@@ -9,23 +10,10 @@ const UserDataContext = createContext<UserDataContextValue | undefined>(undefine
 
 interface UserDataContextValue {
   userData: UserData | undefined;
+  setUserData: (userData: UserData) => void;
   
 }
 
-interface UserData {
-  id: number;
-  uName: string;
-  email: string;
-  role: string;
-  bills: [
-    {
-      id: number;
-      amount: number;
-      date: string;
-      status: string;
-    }
-  ];
-}
 
 const UserDataProvider: React.FC<UserDataContextProviderProps> = ({ children }) => {
   const [userData, setUserData] = useState<UserData | undefined>(undefined);
@@ -48,7 +36,7 @@ const UserDataProvider: React.FC<UserDataContextProviderProps> = ({ children }) 
 
       const data = await response.json();
       setUserData(data);
-      
+      console.log(data);      
       return true;
     } catch (error) {
       console.error(error);
@@ -61,7 +49,7 @@ const UserDataProvider: React.FC<UserDataContextProviderProps> = ({ children }) 
   }, [token]);
 
   return (
-    <UserDataContext.Provider value={{ userData}}>
+    <UserDataContext.Provider value={{ userData, setUserData }}>
       {children}
     </UserDataContext.Provider>
   );

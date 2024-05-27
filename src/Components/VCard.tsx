@@ -34,8 +34,9 @@ const VCard = ({
   
   async function initCart() {
     const result = await fetchCart()
-    console.log(result)
-    setCart(result)
+    if( result && result.id !== 0) {
+      setCart(result)
+    }
   }
 
   function getOldPrice() {
@@ -62,7 +63,8 @@ const VCard = ({
         <h5 className='card-title'>{cart.cName}</h5>
         <p className='card-price'>{getNewPrice()}€ <span className='card-old-price'>{getOldPrice()}€</span></p>
         <p className='card-text'>{cart.description}</p>
-        <a href="#" className='btn btn-primary card-button'>Découvrir l'offre &#8594;</a>
+        <a  href={"/details/"+cart.id}
+        className='btn btn-primary card-button'>Découvrir l'offre &#8594;</a>
       </div>
     </div>
   );
