@@ -134,9 +134,9 @@ const SubmitFormStep = () => {
         <br/>
 
         <label>Type:</label>
-        <input type="radio" id="b" name="type" value="b" checked={type === "b"} onChange={(e) => setType("b")}/>
+        <input type="radio" id="b" name="type" value="b" checked={type === "b"} onChange={() => setType("b")}/>
         <label htmlFor="b">Couponing</label>
-        <input type="radio" id="a" name="type" value="a" checked={type === "a"} onChange={(e) => setType("a")}/>
+        <input type="radio" id="a" name="type" value="a" checked={type === "a"} onChange={() => setType("a")}/>
         <label htmlFor="a">Cashback</label>
         <br/>
 
