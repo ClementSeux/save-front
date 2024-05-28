@@ -52,7 +52,7 @@ const SubmitFormStep = () => {
     myHeaders.append("Authorization", "Bearer " + token);
 
     const raw = JSON.stringify({
-      "expertId": 1,
+      "expert": 1,
       "cName": name,
       "description": description,
       "details": details,
