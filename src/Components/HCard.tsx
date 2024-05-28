@@ -1,5 +1,6 @@
 import React , { useEffect, useState } from 'react';
 import { Cart , useCart } from '../Hooks/useCart';
+import Price from './Price';
 
 const HCard = ({
   cartId} : {cartId: number}) => {
@@ -45,7 +46,7 @@ const HCard = ({
       <div className='hcard-body'>
         <div className='hcard-body-left'>
           <h5 className='card-title'>{cart.cName}</h5>
-          <p className='card-price'>{getNewPrice()}€ <span className='card-old-price'>{getOldPrice()}€</span></p>
+          <Price price={getNewPrice()} oldPrice={getOldPrice()} />
           <p className='card-text'>{cart.description}</p>
 
         </div>

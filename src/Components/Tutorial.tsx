@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useUserData } from '../Providers/UserDataProvider';
 import { Cart, useCart } from '../Hooks/useCart';
 import { Step } from '../types/types';
+import Price from './Price';
 
 interface TutorialProps {
   stage: "a" | "b";
@@ -76,7 +77,7 @@ const Tutorial = ({ stage }: TutorialProps) => {
           return (
             <div className='step' key={step.id}>
               <h2>{step.title}</h2>
-              <p className='card-price'>{ step.price }€ <span className='card-old-price'>{ step.oldPrice }€</span></p>
+              <Price price={step.price} oldPrice={step.oldPrice} />
               <p>{step.content}</p> 
               <a href={step.link}>Lien vers le site</a>
               <iframe

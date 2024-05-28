@@ -13,6 +13,7 @@ import Details from './Pages/Details.tsx';
 import Coupons from './Pages/Coupons.tsx';
 import Cashback from './Pages/Cashback.tsx';
 import SubmitCart from './Pages/SubmitCart.tsx';
+import SubmitStep from './Pages/SubmitStep.tsx';
 
 
 const App: React.FC = () => {
@@ -31,6 +32,7 @@ const App: React.FC = () => {
               <Route path="/cashback/:id" element={<Cashback />} />
 
               <Route path="/submit" element={<SubmitCart />} />
+              <Route path="/submit-step/:id" element={<SubmitStep />} />
 
               <Route path="*" element={<h1>404 Not Found</h1>} />
             </Routes>

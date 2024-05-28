@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useCart } from '../Hooks/useCart';
+import Price from './Price';
 
 type Cart = {
   id: number,
@@ -61,7 +62,7 @@ const VCard = ({
       <img className='card-img-top' src={"/images/fav" + cart.id + ".jfif"} alt="panier" />
       <div className='card-body'>
         <h5 className='card-title'>{cart.cName}</h5>
-        <p className='card-price'>{getNewPrice()}€ <span className='card-old-price'>{getOldPrice()}€</span></p>
+        <Price price={getNewPrice()} oldPrice={getOldPrice()} />
         <p className='card-text'>{cart.description}</p>
         <a  href={"/details/"+cart.id}
         className='btn btn-primary card-button'>Découvrir l'offre &#8594;</a>

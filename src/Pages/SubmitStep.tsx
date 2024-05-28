@@ -7,7 +7,7 @@ const Home: React.FC = () => {
   return (
     <div>
       <Header/>
-      <SubmitFormStep/>
+      <SubmitFormStep />
       <Footer/>
     </div>
   );

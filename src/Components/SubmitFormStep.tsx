@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../Providers/AuthContextProvider';
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 const SubmitFormStep = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
   const { token } = useAuth();
-  const [name, setName] = useState<string>('');
-  const [description, setDescription] = useState<string>('');
-  const [details, setDetails] = useState<string>('');
-  const [reseller, setReseller] = useState<string>('');
-  const [availableFrom, setAvailableFrom] = useState<string>('');
-  const [availableTo, setAvailableTo] = useState<string>('');
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [link, setLink] = useState("");
+  const [type, setType] = useState<"a" | "b">("b");
+  const [item, setItem] = useState("");
+  const [price, setPrice] = useState(0);
+  const [oldPrice, setOldPrice] = useState(0);
 
-  const [resellersRawList, setResellersRawList] = useState<string[]>([]);
-  const [resellersList, setResellersList] = useState<string[]>([]);
-
-  function fetchResellers() {
+  const [itemsList, setItemsList] = useState<string[]>([]);
+  const [itemsRawList, setItemsRawList] = useState<string[]>([]);
+  
+  async function fetchItems() {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + token);
 
@@ -23,43 +29,49 @@ const SubmitFormStep = () => {
       redirect: "follow" as RequestRedirect,
     };
 
-    return fetch("https://www.save.back.clementseux.me:8080/resellers", requestOptions)
+    return fetch("https://www.save.back.clementseux.me:8080/items", requestOptions)
     .then((response) => response.json())
     .then((result) => {
-      setResellersRawList(result);
-      const resellers = result.map((reseller: any) => reseller.rName);
-      setResellersList(resellers);
+      console.log(result)
+      setItemsRawList(result);
+      const items = result.map((item: any) => item.iName);
+      setItemsList(items);
     }
     )
     .catch((error) => console.error(error));
   }
 
-  function getResellerId(resellerName: string) {
-    let resellerId = 0;
-    resellersRawList.forEach((reseller: any) => {
-      if (reseller.rName === resellerName) {
-        resellerId = reseller.id;
+  function getItemId(itemName: string) {
+    let itemId = 0;
+    itemsRawList.forEach((item: any) => {
+      if (item.iName === itemName) {
+        itemId = item.id;
       }
     });
-    return resellerId;
+    return itemId;
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    console.log(name, description, details, reseller, availableFrom, availableTo);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement> | null, redirectToCart: boolean = false) {
+    if (e) {
+      e.preventDefault();
+    }
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", "Bearer " + token);
 
     const raw = JSON.stringify({
-      "expert": 1,
-      "cName": name,
-      "description": description,
-      "details": details,
-      "resellerId": getResellerId(reseller),
-      "availableFrom": availableFrom,
-      "availableTo": availableTo,
+      title: title,
+      cart: id ,
+      content: content,
+      link: link,
+      type: type,
+      item: getItemId(item),
+      price: price,
+      oldPrice: oldPrice,
     });
+
+    console.log(raw);
 
     const requestOptions = {
       method: "POST",
@@ -67,51 +79,99 @@ const SubmitFormStep = () => {
       body: raw,
       redirect: "follow" as RequestRedirect,
     };
-
     
-    return fetch("https://www.save.back.clementseux.me:8080/carts", requestOptions)
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.error(error));
+    return fetch("https://www.save.back.clementseux.me:8080/steps", requestOptions)
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+      if (redirectToCart) {
+        navigate(`/details/${id}`);
+      }
+      setContent("");
+      setLink("");
+      setTitle("");
+      setItem("");
+      setPrice(0);
+      setOldPrice(0);
+    }
+    )
   }
   
+  function handleOldPriceChange(value: any) {
+    const val = value;
+    try {
+      const value = Number(val)
+      setOldPrice(value);
+    } catch (error) {
+      return
+    }
+  }
+
+  function handlePriceChange(value: any) {
+    const val = value;
+    try {
+      const value = Number(val)
+      setPrice(value);
+    } catch (error) {
+      return
+    }
+  }
+
   useEffect(() => {
-    fetchResellers();
+    console.log("fetching items");
+    fetchItems();
   }
   , []);
 
+
   return (
-    <div>
-      <h1>Submit Form</h1>
+    <div id='submit-form'>
+      <h1>Nouvelle étape</h1>
 
-      <form action="" onSubmit={handleSubmit}>
-        <label htmlFor="name">Nom du panier:</label>
-        <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)}/>
+      <form action="" onSubmit={(e)=> handleSubmit(e, true)}>
+        <label htmlFor="title">Titre:</label>
+        <input type="title" id="title" name="title" value={title} onChange={(e) => setTitle(e.target.value)}/>
         <br/>
 
-        <label htmlFor="description">Description:</label>
-        <textarea id="description" name="description" value={description} onChange={(e) => setDescription(e.target.value)}/>
+        <label>Type:</label>
+        <input type="radio" id="b" name="type" value="b" checked={type === "b"} onChange={(e) => setType("b")}/>
+        <label htmlFor="b">Couponing</label>
+        <input type="radio" id="a" name="type" value="a" checked={type === "a"} onChange={(e) => setType("a")}/>
+        <label htmlFor="a">Cashback</label>
         <br/>
 
-        <label htmlFor="details">Details:</label>
-        <textarea id="details" name="details" value={details} onChange={(e) => setDetails(e.target.value)}/>
+        <label htmlFor="content">Description:</label>
+        <textarea id="content" name="content" value={content} onChange={(e) => setContent(e.target.value)}/>
         <br/>
 
-        <label htmlFor="reseller">Revendeur:</label>
-        <select name="reseller" id="reseller" value={reseller} onChange={(e) => setReseller(e.target.value)}>
-          {resellersList.map((reseller) => <option key={reseller} value={reseller}>{reseller}</option>)}
+        <label htmlFor="link">Lien:</label>
+        <textarea id="link" name="link" value={link} onChange={(e) => setLink(e.target.value)}/>
+        <br/>
+
+        <label htmlFor="item">Produit:</label>
+        <select name="item" id="item" value={item} onChange={(e) => setItem(e.target.value)}>
+          {itemsList.map((item) => <option key={item} value={item}>{item}</option>)}
         </select>
         <br/>
 
-        <label htmlFor="availableFrom">Le panier est valable à partir du:</label>
-        <input type="date" id="availableFrom" name="availableFrom" value={availableFrom} onChange={(e) => setAvailableFrom(e.target.value)}/>
-        <br/>
+        <label htmlFor="oldPrice">Ancien prix:</label>
+        <input type="number" id="oldPrice" name="oldPrice" value={oldPrice} onChange={(e) => handleOldPriceChange(e.target.value)} step="any"/>
 
-        <label htmlFor="availableTo">Le panier est valable jusqu'au:</label>
-        <input type="date" id="availableTo" name="availableTo" value={availableTo} onChange={(e) => setAvailableTo(e.target.value)}/>
         <br/>
        
-        <input type="submit" value="Submit Form Data"/> 
+        <label htmlFor="price">Nouveau prix:</label>
+        <input type="number" id="price" name="price" value={price} onChange={(e) => handlePriceChange(e.target.value)} step="any"/>
+        <br/>
+
+        <input type="submit" value="Soumettre une nouvelle étape" className='standard-button'/>
+
+        <button  className='standard-button'
+          onClick={(e) => {
+            e.preventDefault();
+            handleSubmit(null, false);
+          }}
+        
+        >Terminer le panier</button>
       </form>
       
     </div>

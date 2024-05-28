@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../Providers/AuthContextProvider';
+import { useNavigate } from 'react-router-dom';
 
 const SubmitForm = () => {
+  const navigate = useNavigate();
   const { token } = useAuth();
   const [name, setName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
@@ -13,7 +15,7 @@ const SubmitForm = () => {
   const [resellersRawList, setResellersRawList] = useState<string[]>([]);
   const [resellersList, setResellersList] = useState<string[]>([]);
 
-  function fetchResellers() {
+  async function fetchResellers() {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + token);
 
@@ -44,7 +46,7 @@ const SubmitForm = () => {
     return resellerId;
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     console.log(name, description, details, reseller, availableFrom, availableTo);
     const myHeaders = new Headers();
@@ -52,14 +54,16 @@ const SubmitForm = () => {
     myHeaders.append("Authorization", "Bearer " + token);
 
     const raw = JSON.stringify({
-      "expertId": 0,
+      "expert": 0,
       "cName": name,
       "description": description,
       "details": details,
-      "resellerId": getResellerId(reseller),
+      "reseller": getResellerId(reseller),
       "availableFrom": availableFrom,
       "availableTo": availableTo,
     });
+
+    console.log(raw);
 
     const requestOptions = {
       method: "POST",
@@ -69,10 +73,9 @@ const SubmitForm = () => {
     };
 
     
-    return fetch("https://www.save.back.clementseux.me:8080/carts", requestOptions)
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.error(error));
+    await fetch("https://www.save.back.clementseux.me:8080/carts", requestOptions)
+    .then((response) => response.json())
+    .then((result) => navigate('/submit-step/' + result.id))
   }
   
   useEffect(() => {
@@ -81,8 +84,8 @@ const SubmitForm = () => {
   , []);
 
   return (
-    <div>
-      <h1>Submit Form</h1>
+    <div id='submit-form'>
+      <h1>Je soumets mon panier</h1>
 
       <form action="" onSubmit={handleSubmit}>
         <label htmlFor="name">Nom du panier:</label>
@@ -111,7 +114,7 @@ const SubmitForm = () => {
         <input type="date" id="availableTo" name="availableTo" value={availableTo} onChange={(e) => setAvailableTo(e.target.value)}/>
         <br/>
        
-        <input type="submit" value="Submit Form Data"/> 
+        <input type="submit" value="Soumettre le panier" className='standard-button'/>
       </form>
       
     </div>

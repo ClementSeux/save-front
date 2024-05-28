@@ -1,6 +1,7 @@
 import  { useState, useEffect } from 'react';
 import { useUserData } from '../Providers/UserDataProvider';
 import { Step } from '../types/types';
+import Price from './Price';
 
 // props:
 interface ItemCardProps {
@@ -69,7 +70,7 @@ const ItemCard = ({ step }: ItemCardProps) => {
             </div>
             <div className='item-body'>
               <p className="item-name">{step.item.iName}</p>
-              <p className='card-price'>{ step.price }€ <span className='card-old-price'>{ step.oldPrice }€</span></p>
+              <Price price={step.price} oldPrice={step.oldPrice} />
             </div>
           </div>
   );

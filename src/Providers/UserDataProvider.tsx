@@ -45,6 +45,7 @@ const UserDataProvider: React.FC<UserDataContextProviderProps> = ({ children }) 
   };
 
   useEffect(() => {
+    if (token)
     getUserData();
   }, [token]);
 
