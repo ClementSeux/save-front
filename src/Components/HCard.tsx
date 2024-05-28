@@ -63,8 +63,15 @@ const HCard = ({
               }
           </button>
           <a className="details" href={"/details/"+cart.id}>
-            Détails
+            Liste
           </a>
+          <a className="details" href={"/coupons/"+cart.id}>
+            Coupons
+          </a>
+          <a className="details" href={"/cashback/"+cart.id}>
+            Cashback
+          </a>
+
         </div>
       </div>
 

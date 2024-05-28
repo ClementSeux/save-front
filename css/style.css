@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Massilia";
-  src: url("../fonts/Massilia-Medium-BF65ea8038d5375.otf") format("opentype");
+  font-family: "massilia";
+  src: url("../fonts/massilia-Medium-BF65ea8038d5375.otf") format("opentype");
 }
 @font-face {
   font-family: "Roboto";
@@ -42,7 +42,7 @@ body,
   padding-top: 22px;
   color: var(--Moyen, #040039);
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Massilia, sans-serif;
+  font-family: massilia, sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
@@ -157,7 +157,7 @@ body,
 .sous-titre {
   padding: 68px;
   color: #b8b4ff;
-  font-family: Massilia, sans-serif;
+  font-family: massilia, sans-serif;
   text-align: center;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 56px;
@@ -206,7 +206,7 @@ body,
 .vcard h5 {
   color: #040039;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Massilia, sans-serif;
+  font-family: massilia, sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: 800;
@@ -225,7 +225,7 @@ body,
 .card-price {
   color: #040039;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Massilia, sans-serif;
+  font-family: massilia, sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
@@ -235,7 +235,7 @@ body,
 .card-old-price {
   color: #b8b4ff;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Massilia, sans-serif;
+  font-family: massilia, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -432,7 +432,7 @@ body,
 #footer h5 {
   color: #b8b4ff;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Massilia, sans-serif;
+  font-family: massilia, sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: 800;
@@ -536,7 +536,7 @@ body,
   #footer h5 {
     color: #b8b4ff;
     font-feature-settings: "clig" off, "liga" off;
-    font-family: Massilia;
+    font-family: massilia;
     font-size: 32px;
     font-style: normal;
     font-weight: 800;
@@ -635,7 +635,7 @@ body,
   color: #040039;
   text-align: center;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Massilia;
+  font-family: massilia;
   font-size: 32px;
   font-style: normal;
   font-weight: 800;
@@ -716,7 +716,7 @@ body,
   color: #040039;
   text-align: center;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Massilia;
+  font-family: massilia;
   font-size: 32px;
   font-style: normal;
   font-weight: 800;
@@ -791,7 +791,7 @@ body,
 #liste .item-card .item-name {
   color: #040039;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Massilia;
+  font-family: massilia;
   font-size: 32px;
   font-style: normal;
   font-weight: 800;
@@ -802,6 +802,39 @@ body,
   width: 100%;
 }
 
-.itemCard {
-  margin: 20px;
+.itemCard,
+.step {
+  margin: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.itemCard h2,
+.step h2 {
+  color: #040039;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: massilia;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 46px;
+}
+.itemCard p,
+.step p {
+  color: #040039;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.itemCard iframe,
+.step iframe {
+  max-width: min(630px, 90vw);
+  width: 100%;
+  height: 500px;
+  border: 3px solid #040039;
+  border-radius: 20px;
 }/*# sourceMappingURL=style.css.map */

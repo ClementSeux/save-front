@@ -1,5 +1,6 @@
 import { useAuth } from "../Providers/AuthContextProvider";
 
+
 const Header = () => {
   const { token , logout} = useAuth();
 
@@ -8,6 +9,9 @@ const Header = () => {
   }
 
   return (
+    // media query mobile
+
+
     <header id="header">
       <div id="left-nav">
         <a href="/" className="logo">
@@ -16,10 +20,17 @@ const Header = () => {
             src="/images/light_logo.png" 
             alt="logo" />
         </a>
-        <h3 className='nav-link'>S'abonner</h3>
-        <h3 className='nav-link'>Les paniers</h3>
-        <h3 className='nav-link'>Partenaires</h3>
-        <h3 className='nav-link'>Contact</h3>
+        <a className='nav-link'>S'abonner</a>
+        <a className='nav-link'
+          href="/offers"
+        >Les paniers</a>
+        <a className='nav-link'
+          href="/submit"
+        >Soumettre</a>
+        <a className='nav-link'
+          href="/partners"
+        >Partenaires</a>
+        <a className='nav-link'>Contact</a>
       </div>
       <div id="right-nav">
         <button id="search-button">

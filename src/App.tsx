@@ -11,6 +11,8 @@ import Login from './Pages/Login.tsx';
 import OffersPage from './Pages/OffersPage.tsx';
 import Details from './Pages/Details.tsx';
 import Coupons from './Pages/Coupons.tsx';
+import Cashback from './Pages/Cashback.tsx';
+import SubmitCart from './Pages/SubmitCart.tsx';
 
 
 const App: React.FC = () => {
@@ -23,9 +25,12 @@ const App: React.FC = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/home" element={<Home />} />
               <Route path="/offers" element={<OffersPage />} />
-              {/* pass :id as props */}
+              
               <Route path="/details/:id" element={<Details />} />
               <Route path="/coupons/:id" element={<Coupons />} />
+              <Route path="/cashback/:id" element={<Cashback />} />
+
+              <Route path="/submit" element={<SubmitCart />} />
 
               <Route path="*" element={<h1>404 Not Found</h1>} />
             </Routes>

@@ -4,7 +4,11 @@ import { useUserData } from '../Providers/UserDataProvider';
 import { Cart, useCart } from '../Hooks/useCart';
 import { Step } from '../types/types';
 
-const Tutorial = () => {
+interface TutorialProps {
+  stage: "a" | "b";
+}
+
+const Tutorial = ({ stage }: TutorialProps) => {
   const { id } = useParams();
   if (!id) {
     return <h1>404 Not Found</h1>;
@@ -55,34 +59,36 @@ const Tutorial = () => {
   }
   , []);
 
-
   return (
     <div id="tutorial">
     <div className='bandeau'>
       <h1>{cart.cName}</h1>
-      <p>Tutoriel couponing</p>
+      {stage === 'a' ? <p>Récupère ton cashback !</p> : <p>Tutoriel couponing</p>}
     </div>
 
     {cart.steps.map((step: Step) => {
-      if(isStepExcluded(step.id)){
-        return <div className='excluded' key={step.id}>
-          <p>Vous avez déjà exclu cette étape</p>
-        </div>
-      } else {
-        return (
-          <div className='step' key={step.id}>
-            <h2>{step.title}</h2>
-            <p className='card-price'>{ step.price }€ <span className='card-old-price'>{ step.oldPrice }€</span></p>
-            <p>{step.content}</p> 
-            <a href={step.link}>Lien vers le site</a>*
-            <iframe
-              src={`https://www.save.back.clementseux.me:3004?link=${step.link}`}
-              width="100%"
-              height="600"
-              title="Shopmium"
-            ></iframe>
+      if (stage ===  step.type ) {
+        if(isStepExcluded(step.id)){
+          return <div className='excluded' key={step.id}>
+            <p>Vous avez déjà exclu cette étape</p>
           </div>
-        );
+        } else {
+          return (
+            <div className='step' key={step.id}>
+              <h2>{step.title}</h2>
+              <p className='card-price'>{ step.price }€ <span className='card-old-price'>{ step.oldPrice }€</span></p>
+              <p>{step.content}</p> 
+              <a href={step.link}>Lien vers le site</a>
+              <iframe
+                src={`https://www.save.back.clementseux.me:3004?link=${step.link}`}
+                width="100%"
+                height="600"
+                title="Shopmium"
+                sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+              ></iframe>
+            </div>
+          );
+        }
       }
     }
   )

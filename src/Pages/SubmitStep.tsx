@@ -1,17 +1,16 @@
 import React from 'react';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
-import Tutorial from '../Components/Tutorial';
+import SubmitFormStep from '../Components/SubmitFormStep';
 
-
-const Coupons: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <div>
       <Header/>
-      <Tutorial stage="b"/>
+      <SubmitFormStep/>
       <Footer/>
     </div>
   );
 };
 
-export default Coupons;
+export default Home;

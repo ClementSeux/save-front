@@ -4,14 +4,14 @@ import Footer from '../Components/Footer';
 import Tutorial from '../Components/Tutorial';
 
 
-const Coupons: React.FC = () => {
+const Cashback: React.FC = () => {
   return (
     <div>
       <Header/>
-      <Tutorial stage="b"/>
+      <Tutorial stage="a"/>
       <Footer/>
     </div>
   );
 };
 
-export default Coupons;
+export default Cashback;
