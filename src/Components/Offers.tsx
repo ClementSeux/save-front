@@ -40,8 +40,10 @@ const Offers = ({ cartList }: OffersProps) => {
 
   return (
     <article id="offers">
-
+      <div className='bandeau'>
       <h2 className='sous-titre'>Nos offres</h2>
+      </div>
+
 
       {cartList && cartList.length !== 0 ?
       

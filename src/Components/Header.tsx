@@ -1,16 +1,75 @@
+import { useState } from "react";
 import { useAuth } from "../Providers/AuthContextProvider";
+import { useMediaQuery } from 'react-responsive';
 
 
 const Header = () => {
   const { token , logout} = useAuth();
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   function handleLogout() {
     logout();
   }
 
+
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+
   return (
     // media query mobile
+    isMobile ?
+    // burger menu
+    <header id="burger-menu-top">
+      <a href="/" className="logo">
+        <img 
+          id="logo"
+          src="/images/light_logo.png" 
+          alt="logo" />
+      </a>
 
+      <button 
+        id="burger-button"
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+
+      <nav id="burger-menu" className={menuOpen ? 'open' : ""}>
+        <a className='nav-link'>S'abonner</a>
+        <a className='nav-link'
+          href="/offers"
+        >Les paniers</a>
+        <a className='nav-link'
+          href="/submit"
+        >Soumettre</a>
+        <a className='nav-link'
+          href=""
+        >Partenaires</a>
+        <a className='nav-link'>Contact</a>
+        { !token ?
+        <a id="connexion-button" href="/login">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-person" viewBox="0 0 16 16">
+              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+            </svg>
+          <span>
+            Se connecter
+          </span>
+        </a>
+        :
+        <a id="connexion-button" onClick={handleLogout}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-person" viewBox="0 0 16 16">
+              <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+            </svg>
+          <span>
+            Se déconnecter
+          </span>
+        </a>
+        }
+      </nav>
+    </header>
+    
+    :
 
     <header id="header">
       <div id="left-nav">
@@ -28,7 +87,7 @@ const Header = () => {
           href="/submit"
         >Soumettre</a>
         <a className='nav-link'
-          href="/partners"
+          href=""
         >Partenaires</a>
         <a className='nav-link'>Contact</a>
       </div>
