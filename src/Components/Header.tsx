@@ -36,7 +36,9 @@ const Header = () => {
       </button>
 
       <nav id="burger-menu" className={menuOpen ? 'open' : ""}>
-        <a className='nav-link'>S'abonner</a>
+        <a className='nav-link'
+          href="/subscribe"
+        >S'abonner</a>
         <a className='nav-link'
           href="/offers"
         >Les paniers</a>
@@ -79,7 +81,9 @@ const Header = () => {
             src="/images/light_logo.png" 
             alt="logo" />
         </a>
-        <a className='nav-link'>S'abonner</a>
+        <a className='nav-link'
+          href="/subscribe"        
+        >S'abonner</a>
         <a className='nav-link'
           href="/offers"
         >Les paniers</a>

@@ -1,13 +1,12 @@
-import React from 'react';
-
 interface PriceProps {
   price: number;
-  oldPrice: number;
+  oldPrice: number|null;
 }
 
 
 const Price = ({ price, oldPrice }: PriceProps) => {
   function getOldPrice() {
+    if (oldPrice === null) return "";
     return oldPrice.toFixed(2);
   }
 
@@ -15,7 +14,7 @@ const Price = ({ price, oldPrice }: PriceProps) => {
     return price.toFixed(2);
   }
   return (
-    <p className='card-price'>{getNewPrice()}€ <span className='card-old-price'>{getOldPrice()}€</span></p>
+    <p className='card-price'>{getNewPrice()}€ <span className='card-old-price'>{oldPrice? getOldPrice() + "€": ""}</span></p>
   );
 };
 

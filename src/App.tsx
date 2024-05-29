@@ -14,6 +14,7 @@ import Coupons from './Pages/Coupons.tsx';
 import Cashback from './Pages/Cashback.tsx';
 import SubmitCart from './Pages/SubmitCart.tsx';
 import SubmitStep from './Pages/SubmitStep.tsx';
+import Subscribe from './Pages/Subscribe.tsx';
 
 
 const App: React.FC = () => {
@@ -26,6 +27,8 @@ const App: React.FC = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/home" element={<Home />} />
               <Route path="/offers" element={<OffersPage />} />
+              <Route path="/subscribe" element={<Subscribe />} />
+
               
               <Route path="/details/:id" element={<Details />} />
               <Route path="/coupons/:id" element={<Coupons />} />

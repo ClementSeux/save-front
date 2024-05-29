@@ -144,6 +144,9 @@ input {
   border-radius: 100px;
   text-decoration: none;
 }
+.standard-button.dark {
+  background-color: #040039;
+}
 .standard-button:visited {
   color: white;
 }
@@ -647,6 +650,13 @@ input {
   font-weight: 800;
   line-height: 46px;
 }
+.bandeau.dark {
+  background-color: #040039;
+  color: white;
+}
+.bandeau.dark p {
+  color: #b8b4ff;
+}
 .bandeau p {
   max-width: min(630px, 90vw);
   color: #040039;
@@ -1006,4 +1016,44 @@ input {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+}
+
+#subscribe {
+  width: 100%;
+}
+#subscribe .plan-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 260px;
+  border-radius: 30px;
+  margin: 30px;
+  padding: 30px 22px 22px 22px;
+}
+#subscribe .plan-card button,
+#subscribe .plan-card a {
+  align-self: center;
+}
+#subscribe .offer-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#subscribe .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+#subscribe .row div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.accent {
+  color: #f90093;
 }/*# sourceMappingURL=style.css.map */

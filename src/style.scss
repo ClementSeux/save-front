@@ -150,6 +150,9 @@ input {
     justify-content: center;
     align-items: center;
     background-color: $color-accent;
+    &.dark {
+        background-color: $color-secondary;
+    }
     color: white;
     border: none;
     border-radius: 100px;
@@ -685,6 +688,13 @@ input {
     font-style: normal;
     font-weight: 800;
     line-height: 46px;
+    &.dark {
+        background-color: $color-secondary;
+        color: white;
+        & p {
+            color: $color-primary;
+        }
+    }
 
     & p {
         max-width: min(630px, 90vw);
@@ -1093,4 +1103,46 @@ input {
         justify-content: flex-start;
         align-items: center;
     }
+}
+
+#subscribe {
+    width: 100%;
+
+    & .plan-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        height: 260px;
+        border-radius: 30px;
+        margin: 30px;
+        padding: 30px 22px 22px 22px;
+        & button,
+        a {
+            align-self: center;
+        }
+    }
+
+    & .offer-detail {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    & .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        & div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.accent {
+    color: $color-accent;
 }
