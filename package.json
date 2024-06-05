@@ -10,13 +10,16 @@
         "preview": "vite preview"
     },
     "dependencies": {
+        "crypto": "^1.0.1",
         "currency": "^4.1.0",
+        "js-crypto-pbkdf": "^1.0.7",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-responsive": "^10.0.0",
         "react-router-dom": "^6.23.1"
     },
     "devDependencies": {
+        "@types/node": "^20.14.0",
         "@types/react": "^18.2.66",
         "@types/react-dom": "^18.2.22",
         "@typescript-eslint/eslint-plugin": "^7.2.0",

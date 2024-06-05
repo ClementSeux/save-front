@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 
-
 interface AuthContextProviderProps {
   children: ReactNode;
 }
@@ -47,7 +46,10 @@ const AuthContextProvider: React.FC<AuthContextProviderProps> = ({ children }) =
       !password && console.error('password', password);
     }
 
+
+
     try {
+     
       const response = await fetch('https://www.save.back.clementseux.me:8080/auth/token', {
         method: 'GET',
         headers: {

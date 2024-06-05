@@ -689,11 +689,11 @@ input {
   font-weight: 400;
   line-height: 18px;
 }
-.square-zone#login-zone {
+.square-zone#login-zone, .square-zone#register-zone {
   padding-top: 40px;
   padding-bottom: 35px;
 }
-.square-zone#login-zone .form-zone {
+.square-zone#login-zone .form-zone, .square-zone#register-zone .form-zone {
   padding: 30px 0 0 0;
   position: relative;
   display: flex;
@@ -702,10 +702,10 @@ input {
   align-items: center;
   margin: 10px 0;
 }
-.square-zone#login-zone .form-zone.larger {
+.square-zone#login-zone .form-zone.larger, .square-zone#register-zone .form-zone.larger {
   padding-bottom: 30px;
 }
-.square-zone#login-zone .form-zone input {
+.square-zone#login-zone .form-zone input, .square-zone#register-zone .form-zone input {
   width: 400px;
   height: 42px;
   border-radius: 100px;
@@ -714,18 +714,18 @@ input {
   border-radius: 100px;
   border: none;
 }
-.square-zone#login-zone .form-zone label {
+.square-zone#login-zone .form-zone label, .square-zone#register-zone .form-zone label {
   position: absolute;
   top: 0;
   left: 0;
 }
-.square-zone#login-zone .form-zone a {
+.square-zone#login-zone .form-zone a, .square-zone#register-zone .form-zone a {
   position: absolute;
   bottom: 0;
   right: 0;
   color: #b8b4ff;
 }
-.square-zone#login-zone button {
+.square-zone#login-zone button, .square-zone#register-zone button {
   width: 197px;
 }
 .square-zone h2 {
@@ -1056,4 +1056,47 @@ input {
 
 .accent {
   color: #f90093;
+}
+
+#register {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#register div:not(.modal) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#register .standard-button {
+  width: min(300px, 30%);
+}
+
+div.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+div.modal .modal-content {
+  background-color: #040039;
+  color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+div.modal .modal-content .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */

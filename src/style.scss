@@ -110,7 +110,7 @@ input {
     border-radius: 100px;
     text-decoration: none;
     &:visited {
-        color: white;
+        color: white; 
     }
     &:hover {
         background-color: $color-accent;
@@ -728,7 +728,8 @@ input {
     font-style: normal;
     font-weight: 400;
     line-height: 18px;
-    &#login-zone {
+    &#login-zone,
+    &#register-zone {
         padding-top: 40px;
         padding-bottom: 35px;
         & .form-zone {
@@ -1145,4 +1146,47 @@ input {
 
 .accent {
     color: $color-accent;
+}
+
+#register {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    & div:not(.modal) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    & .standard-button {
+        width: min(300px, 30%);
+    }
+}
+
+div.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    & .modal-content {
+        background-color: $color-secondary;
+        color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        & .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+    }
 }

@@ -59,9 +59,11 @@ const Connexion = () => {
 
           <div className="square-zone">
             <h2>Créez votre compte</h2>
-            <button className="standard-button">
+            <a href="/register"
+              className='standard-button'
+            >
               Commencer &#8594;
-            </button>
+            </a>
           </div>
 
         </div>
