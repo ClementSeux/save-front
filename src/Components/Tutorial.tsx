@@ -4,6 +4,8 @@ import { useUserData } from '../Providers/UserDataProvider';
 import { Cart, useCart } from '../Hooks/useCart';
 import { Step } from '../types/types';
 import Price from './Price';
+import { XFrameBypass } from 'x-frame-bypass';
+
 
 interface TutorialProps {
   stage: "a" | "b";
@@ -91,12 +93,14 @@ const Tutorial = ({ stage }: TutorialProps) => {
                   }
                 >Lien vers le site</a>
                 <iframe
+                //  is="x-frame-bypass"
                   src={`https://www.save.back.clementseux.me:3004?link=${step.link}`}
+                  // src={step.link}
                   width="100%"
                   height="600"
                   title="Shopmium"
                   sandbox="allow-same-origin  allow-scripts allow-popups allow-forms allow-top-navigation"
-                ></iframe>
+                />
               </div>
             </div>
           );
