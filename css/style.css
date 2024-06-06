@@ -91,6 +91,7 @@ input {
 #connexion-button {
   padding: 0 10px;
   height: 40px;
+  width: 190px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -128,7 +129,7 @@ input {
   position: absolute;
   bottom: max(10vh - 30px, -10px);
   left: 50%;
-  transform: translateY(-50%);
+  transform: translateX(-50%);
 }
 
 .standard-button {
@@ -296,14 +297,21 @@ input {
   border-radius: 30px;
   border: 2px solid #adabc3;
   background: white;
+  max-width: min(90vw, 600px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  padding: 20px;
   margin: 24px;
 }
+@media (min-width: 1024px) {
+  #offers .hcard {
+    padding: 50px;
+  }
+}
 #offers .hcard .hcard-body {
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -313,6 +321,7 @@ input {
 #offers .card-buttons {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -566,7 +575,7 @@ input {
     align-items: flex-end;
   }
   #footer .first-col input {
-    width: 400px;
+    width: 100%;
     height: 54px;
     margin: 10px;
     padding: 10px 16px;
@@ -669,6 +678,13 @@ input {
   text-align: left;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .square-zone {
   width: 550px;
   height: 350px;
@@ -690,10 +706,12 @@ input {
   line-height: 18px;
 }
 .square-zone#login-zone, .square-zone#register-zone {
+  height: auto;
   padding-top: 40px;
   padding-bottom: 35px;
 }
 .square-zone#login-zone .form-zone, .square-zone#register-zone .form-zone {
+  width: 80%;
   padding: 30px 0 0 0;
   position: relative;
   display: flex;
@@ -705,8 +723,27 @@ input {
 .square-zone#login-zone .form-zone.larger, .square-zone#register-zone .form-zone.larger {
   padding-bottom: 30px;
 }
+.square-zone#login-zone .form-zone.checkbox, .square-zone#register-zone .form-zone.checkbox {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 30px 30px 30px;
+  padding: 0;
+}
+.square-zone#login-zone .form-zone.checkbox label, .square-zone#register-zone .form-zone.checkbox label {
+  position: relative;
+}
+.square-zone#login-zone .form-zone.checkbox input, .square-zone#register-zone .form-zone.checkbox input {
+  float: left;
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  padding: 10px 16px;
+  border-radius: 100px;
+  border: none;
+  background-color: #f2f1fa;
+}
 .square-zone#login-zone .form-zone input, .square-zone#register-zone .form-zone input {
-  width: 400px;
+  width: 100%;
   height: 42px;
   border-radius: 100px;
   background-color: #f2f1fa;
@@ -747,6 +784,7 @@ input {
   align-items: flex-start;
 }
 #liste .item-card {
+  max-width: min(90vw, 600px);
   width: 100%;
   padding: 20px;
   margin: 20px;
@@ -755,6 +793,15 @@ input {
   justify-content: start;
   align-items: center;
   row-gap: 20px;
+}
+@media (min-width: 1024px) {
+  #liste .item-card {
+    padding: 30px;
+  }
+  #liste .item-card img {
+    width: 150px;
+    height: 150px;
+  }
 }
 #liste .item-card > div {
   margin: 0 10px;
@@ -786,8 +833,8 @@ input {
   color: #040039;
 }
 #liste .item-card img {
-  width: 150px;
-  height: 150px;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
 }
 #liste .item-card .item-list {
@@ -1010,6 +1057,7 @@ input {
 }
 #burger-menu #connexion-button {
   width: 400px;
+  min-width: 400px;
 }
 #burger-menu.open {
   display: flex;
@@ -1073,6 +1121,9 @@ input {
 }
 #register .standard-button {
   width: min(300px, 30%);
+}
+#register .bandeau {
+  margin-bottom: 30px;
 }
 
 div.modal {

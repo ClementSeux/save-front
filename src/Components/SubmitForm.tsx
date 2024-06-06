@@ -15,6 +15,14 @@ const SubmitForm = () => {
   const [resellersRawList, setResellersRawList] = useState<string[]>([]);
   const [resellersList, setResellersList] = useState<string[]>([]);
 
+  function areDataOk() : boolean {
+    return name !== '' && description !== '' && details !== '' && reseller !== '' && availableFrom !== '' && availableTo !== '';
+  }
+
+  function isDateOk() : boolean {
+   return Date.parse(availableFrom) < Date.parse(availableTo);
+  }
+
   async function fetchResellers() {
     const myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer " + token);
@@ -31,6 +39,9 @@ const SubmitForm = () => {
       setResellersRawList(result);
       const resellers = result.map((reseller: any) => reseller.rName);
       setResellersList(resellers);
+      if (resellers.length > 0){
+        setReseller(resellers[0]);
+      }
     }
     )
     .catch((error) => console.error(error));
@@ -48,6 +59,16 @@ const SubmitForm = () => {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    if (!areDataOk()) {
+      alert("Veuillez remplir tous les champs");
+      return;
+    }
+    if (!isDateOk()) {
+      alert("La date de début doit être antérieure à la date de fin");
+      return;
+    }
+
     console.log(name, description, details, reseller, availableFrom, availableTo);
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -82,6 +103,18 @@ const SubmitForm = () => {
     fetchResellers();
   }
   , []);
+
+  if (!token) {
+    return <div
+      className="bandeau"
+    >
+      <h1>
+        Oups!
+      </h1>
+      <p>Vous devez être connecté pour accéder à cette page</p>
+    </div>
+  }
+
 
   return (
     <div id='submit-form'>

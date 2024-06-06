@@ -18,6 +18,14 @@ const SubmitFormStep = () => {
 
   const [itemsList, setItemsList] = useState<string[]>([]);
   const [itemsRawList, setItemsRawList] = useState<string[]>([]);
+
+  function areDataOk() : boolean {
+    return title !== '' && content !== '' && link !== '' && item !== '' && price !== 0 && oldPrice !== 0;
+  }
+
+  function isPriceOk() : boolean {
+    return price < oldPrice;
+  }
   
   async function fetchItems() {
     const myHeaders = new Headers();
@@ -36,6 +44,7 @@ const SubmitFormStep = () => {
       setItemsRawList(result);
       const items = result.map((item: any) => item.iName);
       setItemsList(items);
+      if (items.length > 0) setItem(items[0]);
     }
     )
     .catch((error) => console.error(error));
@@ -56,6 +65,17 @@ const SubmitFormStep = () => {
     if (e) {
       e.preventDefault();
     }
+
+    if (!areDataOk()) {
+      alert("Veuillez remplir tous les champs");
+      return;
+    }
+
+    if (!isPriceOk()) {
+      alert("Le prix doit être inférieur à l'ancien prix");
+      return;
+    }
+    
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     myHeaders.append("Authorization", "Bearer " + token);
@@ -128,7 +148,7 @@ const SubmitFormStep = () => {
     <div id='submit-form'>
       <h1>Nouvelle étape</h1>
 
-      <form action="" onSubmit={(e)=> handleSubmit(e, true)}>
+      <form action="" onSubmit={(e)=> handleSubmit(e, false)}>
         <label htmlFor="title">Titre:</label>
         <input type="title" id="title" name="title" value={title} onChange={(e) => setTitle(e.target.value)}/>
         <br/>
@@ -174,7 +194,8 @@ const SubmitFormStep = () => {
         <button  className='standard-button'
           onClick={(e) => {
             e.preventDefault();
-            handleSubmit(null, false);
+            handleSubmit(null, true);
+            navigate(`/details/${id}`);
           }}
         
         >Terminer le panier</button>

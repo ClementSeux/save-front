@@ -99,6 +99,7 @@ input {
 #connexion-button {
     padding: 0 10px;
     height: 40px;
+    width: 190px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -110,7 +111,7 @@ input {
     border-radius: 100px;
     text-decoration: none;
     &:visited {
-        color: white; 
+        color: white;
     }
     &:hover {
         background-color: $color-accent;
@@ -139,7 +140,7 @@ input {
     position: absolute;
     bottom: max(calc(10vh - 30px), -10px);
     left: 50%;
-    transform: translateY(-50%);
+    transform: translateX(-50%);
 }
 
 .standard-button {
@@ -308,19 +309,27 @@ input {
         color: $color-secondary;
     }
 
+    // media query ecran pc
     .hcard {
+        @media (min-width: 1024px) {
+            & {
+                padding: 50px;
+            }
+        }
         border-radius: 30px;
         border: 2px solid #adabc3;
         background: white;
+        max-width: min(90vw, 600px);
 
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding: 50px;
+        padding: 20px;
         margin: 24px;
 
         & .hcard-body {
+            width: 100%;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -332,6 +341,7 @@ input {
     .card-buttons {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: space-between;
         align-items: center;
         & button,
@@ -601,7 +611,7 @@ input {
                 align-items: flex-end;
             }
             & input {
-                width: 400px;
+                width: 100%;
                 height: 54px;
                 margin: 10px;
                 padding: 10px 16px;
@@ -709,6 +719,13 @@ input {
     }
 }
 
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .square-zone {
     width: 550px;
     height: 350px;
@@ -730,9 +747,11 @@ input {
     line-height: 18px;
     &#login-zone,
     &#register-zone {
+        height: auto;
         padding-top: 40px;
         padding-bottom: 35px;
         & .form-zone {
+            width: 80%;
             padding: 30px 0 0 0;
             &.larger {
                 padding-bottom: 30px;
@@ -744,8 +763,28 @@ input {
             align-items: center;
             margin: 10px 0;
 
+            &.checkbox {
+                display: flex;
+                flex-direction: row;
+                margin: 10px 30px 30px 30px;
+                padding: 0;
+                & label {
+                    position: relative;
+                }
+                & input {
+                    float: left;
+                    width: 20px;
+                    height: 20px;
+                    margin: 10px;
+                    padding: 10px 16px;
+                    border-radius: 100px;
+                    border: none;
+                    background-color: $color-neutral;
+                }
+            }
+
             & input {
-                width: 400px;
+                width: 100%;
                 height: 42px;
                 border-radius: 100px;
                 background-color: $color-neutral;
@@ -791,6 +830,16 @@ input {
     align-items: flex-start;
 
     & .item-card {
+        @media (min-width: 1024px) {
+            & {
+                padding: 30px;
+            }
+            & img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+        max-width: min(90vw, 600px);
         width: 100%;
         padding: 20px;
         margin: 20px;
@@ -842,8 +891,8 @@ input {
         }
 
         & img {
-            width: 150px;
-            height: 150px;
+            width: 90px;
+            height: 90px;
             object-fit: cover;
         }
 
@@ -1096,6 +1145,7 @@ input {
     }
     & #connexion-button {
         width: 400px;
+        min-width: 400px;
     }
 
     &.open {
@@ -1162,6 +1212,9 @@ input {
     }
     & .standard-button {
         width: min(300px, 30%);
+    }
+    .bandeau {
+        margin-bottom: 30px;
     }
 }
 

@@ -16,6 +16,7 @@ import SubmitCart from './Pages/SubmitCart.tsx';
 import SubmitStep from './Pages/SubmitStep.tsx';
 import Subscribe from './Pages/Subscribe.tsx';
 import Register from './Pages/Register.tsx';
+import Page404 from './Pages/Page404.tsx';
 
 
 const App: React.FC = () => {
@@ -39,7 +40,7 @@ const App: React.FC = () => {
               <Route path="/submit" element={<SubmitCart />} />
               <Route path="/submit-step/:id" element={<SubmitStep />} />
 
-              <Route path="*" element={<h1>404 Not Found</h1>} />
+              <Route path="*" element={<Page404 />} />
             </Routes>
         </Router>
       </UserDataProvider>

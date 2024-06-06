@@ -64,7 +64,6 @@ const Liste: React.FC = () => {
         ))}
       </div>
       {cart.cName ? null : <h1>Loading...</h1>}
-      <p>Details for cart id: {id}</p>
     </div>
   );
 };

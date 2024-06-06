@@ -41,7 +41,7 @@ const Offers = ({ cartList }: OffersProps) => {
   return (
     <article id="offers">
       <div className='bandeau'>
-      <h2 className='sous-titre'>Nos offres</h2>
+      <h1 className='sous-titre'>Nos offres</h1>
       </div>
 
 

@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../Providers/AuthContextProvider';
 
 const RegisterForm = () => {
   const navigate = useNavigate();
@@ -8,8 +7,6 @@ const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [passwordInput, setPasswordClr] = useState('');
   const [acceptConditions, setAcceptConditions] = useState(false);
-  const [hashing, setHashing] = useState<boolean>(false);
-
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -27,7 +24,6 @@ const RegisterForm = () => {
     // toggle the state
     setAcceptConditions((state) => !state);
   };
-
 
   async function handleSubmit() {
     if (!acceptConditions) {
@@ -59,11 +55,8 @@ const RegisterForm = () => {
       })
   }
 
-
-
   return (
     <main id="register">
-
       {/* modal register ok */}
       <div className="modal" id="register-modal">
         <div className="modal-content">
@@ -84,7 +77,7 @@ const RegisterForm = () => {
       
       
       <div className="bandeau">
-      <h1>S'inscrire</h1>
+        <h1>S'inscrire</h1>
       </div>
       
       <div className="container">
@@ -100,8 +93,6 @@ const RegisterForm = () => {
               <input type="text" id="name" name="name" placeholder="" required onChange={handleNameChange} />
             </div>
            
-           
-           
             <div className="form-zone">
               <label htmlFor="email">Email</label>
               <input type="email" id="email" name="email" placeholder="" required onChange={handleEmailChange} />
@@ -114,23 +105,17 @@ const RegisterForm = () => {
 
             {/* checkbox require "J'accepte les conditions générales et la politique de confidentialité" */}
 
-            <div className="form-zone">
+            <div className="form-zone checkbox">
               <input type="checkbox" id="terms" name="terms" required onChange={handleAcceptConditionsChange}  />
               <label htmlFor="terms">J'accepte les conditions générales et la politique de confidentialité</label>
             </div>
-
 
             <button className="standard-button"
               type="submit"
              >Enregistrer &#8594;</button>
           </form>
-
         </div>
-
-
-
       </div>
-      
     </main>
   );
 };

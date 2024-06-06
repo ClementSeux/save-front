@@ -7,7 +7,7 @@ const SubscribePlan = () => {
   return (
     <main id="subscribe">
       <div className='bandeau dark'>
-        <h2 className='sous-titre'>S'abonner</h2>
+        <h1 className='sous-titre'>S'abonner</h1>
         <p>Avec notre système d'abonnement, vous avez accès à des tonnes d'offres exclusives chaque mois, directement dans votre boîte de réception. 
   Dites adieu aux coupons oubliés et bonjour à des économies régulières sur vos marques préférées.</p>
       </div>
