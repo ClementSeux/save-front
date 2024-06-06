@@ -59,9 +59,12 @@ const Liste: React.FC = () => {
         className='standard-button'>Je passe aux coupons &#8594;</a>
                 </div> : null}
       <div className='item-list'>
-        {cart.steps.map((step) => (
-          <ItemCard step={step} key={step.id} />
-        ))}
+        {cart.steps.map((step) => {
+          if (step.price !== 0) {
+            return <ItemCard step={step} key={step.id} />;
+          }
+          return null;
+        })}
       </div>
       {cart.cName ? null : <h1>Loading...</h1>}
     </div>

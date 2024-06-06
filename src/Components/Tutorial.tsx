@@ -75,18 +75,29 @@ const Tutorial = ({ stage }: TutorialProps) => {
           </div>
         } else {
           return (
-            <div className='step' key={step.id}>
-              <h2>{step.title}</h2>
-              <Price price={step.price} oldPrice={step.oldPrice} />
-              <p>{step.content}</p> 
-              <a href={step.link}>Lien vers le site</a>
-              <iframe
-                src={`https://www.save.back.clementseux.me:3004?link=${step.link}`}
-                width="100%"
-                height="600"
-                title="Shopmium"
-                sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-              ></iframe>
+            <div>
+              <div className='step' key={step.id}>
+                <h2>{step.title}</h2>
+                <Price price={step.price} oldPrice={step.oldPrice} />
+                <p>{step.content}</p> 
+                <a 
+                  href={step.link} 
+                  target="_blank"
+                  style={
+                    {
+                      fontSize: "1.1rem",
+                      marginBottom: "2rem",
+                    }
+                  }
+                >Lien vers le site</a>
+                <iframe
+                  src={`https://www.save.back.clementseux.me:3004?link=${step.link}`}
+                  width="100%"
+                  height="600"
+                  title="Shopmium"
+                  sandbox="allow-same-origin  allow-scripts allow-popups allow-forms allow-top-navigation"
+                ></iframe>
+              </div>
             </div>
           );
         }

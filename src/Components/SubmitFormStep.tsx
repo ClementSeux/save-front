@@ -20,11 +20,11 @@ const SubmitFormStep = () => {
   const [itemsRawList, setItemsRawList] = useState<string[]>([]);
 
   function areDataOk() : boolean {
-    return title !== '' && content !== '' && link !== '' && item !== '' && price !== 0 && oldPrice !== 0;
+    return title !== '' && content !== '' && link !== '' && item !== '';
   }
 
   function isPriceOk() : boolean {
-    return price < oldPrice;
+    return price <= oldPrice;
   }
   
   async function fetchItems() {
