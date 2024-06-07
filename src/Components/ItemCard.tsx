@@ -67,7 +67,7 @@ const ItemCard = ({ step }: ItemCardProps) => {
               />
             </div>
             <div>
-              {imageTable[parseInt(step.item.iName) as keyof typeof imageTable] == undefined ? (
+              {imageTable[(step.item.id) as keyof typeof imageTable] == undefined ? (
                 <img src={`images/items/pringles.png`} />
               ) : (
                 <img src={`images/items/${imageTable[step.item.id as keyof typeof imageTable]}`} alt={step.item.iName} />
