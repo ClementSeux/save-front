@@ -2,6 +2,7 @@ import  { useState, useEffect } from 'react';
 import { useUserData } from '../Providers/UserDataProvider';
 import { Step } from '../types/types';
 import Price from './Price';
+import imageTable from '../utils/imageTable';
 
 // props:
 interface ItemCardProps {
@@ -66,7 +67,11 @@ const ItemCard = ({ step }: ItemCardProps) => {
               />
             </div>
             <div>
-              <img src="/images/items/snickers.jpg" alt="pringles" />
+              {imageTable[parseInt(step.item.iName) as keyof typeof imageTable] == undefined ? (
+                <img src={`images/items/pringles.png`} />
+              ) : (
+                <img src={`images/items/${imageTable[step.item.id as keyof typeof imageTable]}`} alt={step.item.iName} />
+              )}
             </div>
             <div className='item-body'>
               <p className="item-name">{step.item.iName}</p>
